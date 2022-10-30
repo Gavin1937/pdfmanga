@@ -112,7 +112,7 @@ class mangaBuilder:
         
     
     def saveManga(self, path) -> None:
-        self.pdf.output(path)
+        self.pdf.output(str(Path(path).resolve()))
     
     def closePdf(self) -> None:
         self.pdf.close()
