@@ -1,5 +1,5 @@
 
-# Manga Builder
+# PDF Manga Builder
 
 A Simple Python3 tool to build a pdf manga from images.
 
@@ -23,7 +23,7 @@ pip3 install -r requirement.txt
 ### Create a single episode pdf
 
 ```py
-from mangaBuilder import mangaBuilder
+from pdfmanga import mangaBuilder
 
 # collect all manga image files to a list
 # all files in the list have to be sorted
@@ -68,7 +68,7 @@ mb.saveManga("/manga/output.pdf")
 ### Create whole manga pdf with multiple episodes
 
 ```py
-from mangaBuilder import mangaBuilder
+from pdfmanga import mangaBuilder
 
 # collect all manga image files to a list
 # all files in the list have to be sorted
@@ -111,7 +111,7 @@ PDF_PAGE_HEIGHT = 2400
 PDF_IMG_COLOR_MODE = 'RGB'
 mb = mangaBuilder(PDF_PAGE_WIDTH, PDF_PAGE_HEIGHT, PDF_IMG_COLOR_MODE)
 
-# build episode pdf and save it
+# build manga pdf and save it
 mb.buildManga(manga_title, images, episode_info)
 
 mb.saveManga("/manga/output.pdf")
