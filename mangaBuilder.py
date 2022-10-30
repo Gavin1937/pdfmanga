@@ -3,6 +3,7 @@
 from math import ceil
 from PIL import Image
 from fpdf import FPDF
+from pathlib import Path
 
 
 def divideListToChunck(_list, chunck_num):
@@ -44,8 +45,8 @@ class mangaBuilder:
         """
         
         # setup
-        img_buf_list:list = []
         img_data:Image.Image = None
+        eps_file_list = [Path(i) for i in eps_file_list]
         eps_file_list = divideListToChunck(eps_file_list, 3)
         self.pdf.add_page()
         self.pdf.start_section(eps_title)
