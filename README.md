@@ -8,10 +8,11 @@ A Simple Python3 tool to build a pdf manga from images.
 * Python >= 3.8
 * Packages
 
-| Python Packages | Version  |
-|-----------------|----------|
-| fpdf2           | >= 2.5.7 |
-| Pillow          | >= 9.0.0 |
+| Python Packages | Version   |
+|-----------------|-----------|
+| fpdf2           | >= 2.5.7  |
+| PyPDF2          | >= 2.11.1 |
+| Pillow          | >= 9.0.0  |
 
 Simply run this command to install all the required packages
 ```console
