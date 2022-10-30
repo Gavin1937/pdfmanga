@@ -1,0 +1,14 @@
+
+# folder
+/__pycache__/
+/.vscode/
+
+# files
+*main*
+*test*
+*png
+*jpg
+*jpeg
+*svg
+*bmp
+*pdf
