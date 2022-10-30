@@ -30,6 +30,9 @@ class mangaBuilder:
         self.pdf:FPDF = FPDF(orientation="portrait", format=(self.page_width, self.page_height))
         self.pdf.set_margin(0)
     
+    def __del__(self):
+        self.pdf.close()
+    
     
     def buildEpisode(self, eps_title:str, eps_file_list:list) -> None:
         """
@@ -109,6 +112,9 @@ class mangaBuilder:
     
     def saveManga(self, path) -> None:
         self.pdf.output(path)
+    
+    def closePdf(self) -> None:
+        self.pdf.close()
     
     def __buildPages(self, img:Image.Image) -> Image.Image:
         # img is too short, return it
