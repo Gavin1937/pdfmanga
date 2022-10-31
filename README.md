@@ -118,3 +118,44 @@ mb.buildManga(manga_title, images, episode_info)
 mb.saveManga("/manga/output.pdf")
 ```
 
+
+## Apply lossless compression on images
+
+```py
+from pdfmanga import mangaBuilder
+
+# collect all manga image files to a list
+# all files in the list have to be sorted
+images = [
+    "/manga/files/001.jpg",
+    "/manga/files/002.jpg",
+    "/manga/files/003.jpg",
+    "/manga/files/004.jpg",
+    "/manga/files/005.jpg",
+    "/manga/files/006.jpg",
+    "/manga/files/007.jpg",
+    "/manga/files/008.jpg",
+    "/manga/files/009.jpg",
+    "/manga/files/010.jpg"
+]
+
+episode_title = "episode title"
+
+# initialize mangaBuilder object
+PDF_PAGE_WIDTH = 720
+PDF_PAGE_HEIGHT = 2400
+PDF_IMG_COLOR_MODE = 'RGB'
+mb = mangaBuilder(PDF_PAGE_WIDTH, PDF_PAGE_HEIGHT, PDF_IMG_COLOR_MODE)
+
+# build episode pdf and save it
+mb.buildEpisode(episode_title, images)
+
+# supply True to mangaBuilder.saveManga lossless_compression flag
+# this flag is set to False by default
+# it is CPU intensive!
+# checkout PyPDF2 documentation about lossless compression:
+# https://pypdf2.readthedocs.io/en/latest/user/file-size.html?highlight=lossless#lossless-compression
+mb.saveManga("/manga/output.pdf", lossless_compression=True)
+```
+
+
