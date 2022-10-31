@@ -51,8 +51,9 @@ class mangaBuilder:
         img_data:Image.Image = None
         eps_file_list = [Path(i) for i in eps_file_list]
         eps_file_list = divideListToChunck(eps_file_list, 3)
-        self.pdf.add_page()
-        self.have_empty_page = True
+        if (self.have_empty_page == False):
+            self.pdf.add_page()
+            self.have_empty_page = True
         self.pdf.start_section(eps_title)
         
         # loop through episode file chunks & create pdf
@@ -128,6 +129,13 @@ class mangaBuilder:
             length = len(reader.pages) - 1
             for i in range(length):
                 writer.add_page(reader.pages[i])
+            
+            writer.add_metadata(reader.metadata)
+            for outline in reader.outline:
+                writer.add_outline_item(
+                    title=outline.title,
+                    pagenum=reader.get_destination_page_number(outline)
+                )
             
             with open(path, "wb") as file:
                 writer.write(file)
